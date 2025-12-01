@@ -1,6 +1,5 @@
 ---
-title: java 设计模式
-index: false
+title: 进阶之路
 icon: laptop-code
 category:
   - 使用指南
