@@ -7,8 +7,16 @@ export default navbar([
   {
     text: "博文",
     icon: "pen-to-square",
-    prefix: "/posts/",
+    prefix: "/column/",
     children: [
+      {
+        text: "重学数据结构与算法",
+        icon: "pen-to-square",
+        prefix: "重学数据结构与算法/",
+        children: [
+          { text: "00 数据结构与算法，应该这样学！", icon: "pen-to-square", link: "00 数据结构与算法，应该这样学！" },
+        ],
+      },
       {
         text: "苹果",
         icon: "pen-to-square",
