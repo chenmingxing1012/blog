@@ -15,6 +15,10 @@ export default navbar([
         prefix: "重学数据结构与算法/",
         children: [
           { text: "00 数据结构与算法，应该这样学！", icon: "pen-to-square", link: "00 数据结构与算法，应该这样学！" },
+          { text: "01 复杂度：如何衡量程序运行的效率？", icon: "pen-to-square", link: "01 复杂度：如何衡量程序运行的效率？" },
+          { text: "02 数据结构：将“昂贵”的时间复杂度转换成“廉价”的空间复杂度", icon: "pen-to-square", link: "02 数据结构：将“昂贵”的时间复杂度转换成“廉价”的空间复杂度" },
+          { text: "03 增删查：掌握数据处理的基本操作,以不变应万变", icon: "pen-to-square", link: "03 增删查：掌握数据处理的基本操作,以不变应万变" },
+          { text: "04 如何完成线性表结构下的增删查？", icon: "pen-to-square", link: "04 如何完成线性表结构下的增删查？" }
         ],
       },
       {
