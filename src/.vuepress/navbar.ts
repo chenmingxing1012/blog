@@ -10,16 +10,22 @@ export default navbar([
     prefix: "/column/",
     children: [
       {
-        text: "重学数据结构与算法",
+        text: "重学数据结构与算法-公瑾",
         link: "重学数据结构与算法/",
         icon: "pen-to-square",
         activeMatch: "^/column/重学数据结构与算法/$",
       },
       {
-        text: "高并发系统设计40问",
+        text: "高并发系统设计40问-唐扬",
         link: "高并发系统设计40问/",
         icon: "pen-to-square",
         activeMatch: "^/column/高并发系统设计40问/$",
+      },
+      {
+        text: "12步通关求职面试-杨宇堃",
+        link: "12步通关求职面试-杨宇堃/",
+        icon: "pen-to-square",
+        activeMatch: "^/column/12步通关求职面试-杨宇堃/$",
       },
 
     ],
