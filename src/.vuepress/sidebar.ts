@@ -3,25 +3,6 @@ import { sidebar } from "vuepress-theme-hope";
 export default sidebar({
   "/": [
     "",
-    {
-      text: "如何使用",
-      icon: "laptop-code",
-      prefix: "demo/",
-      link: "demo/",
-      children: "structure",
-    },
-    {
-      text: "文章",
-      icon: "book",
-      prefix: "posts/",
-      children: "structure",
-    },
-    "intro",
-    {
-      text: "幻灯片",
-      icon: "person-chalkboard",
-      link: "https://ecosystem.vuejs.press/zh/plugins/markdown/revealjs/demo.html",
-    },
   ],
 
   "/vue-design-patterns/": [
@@ -53,6 +34,10 @@ export default sidebar({
   ],
 
   "/column/": [
+    {
+      text: "技术博文专栏",
+      link: "/column/README.md",
+    },
     {
       text: "重学数据结构与算法-公瑾",
       collapsible: true,
@@ -155,6 +140,7 @@ export default sidebar({
         "12步通关求职面试-杨宇堃/12 工作交接流程福利衔接"
       ],
     }
-  ]
-  ,
+  ],
+  "/donate/": "structure",
+
 });

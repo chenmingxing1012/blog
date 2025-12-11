@@ -6,8 +6,7 @@ export default defineUserConfig({
   base: "/blog/",
 
   lang: "zh-CN",
-  title: "果然Java封神之路",
-  description: "果然Java封神之路",
+  title: "凡人修码传",
 
   theme,
 
