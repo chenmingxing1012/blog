@@ -4,38 +4,11 @@ export default sidebar({
   "/": [
     "",
   ],
-
-  "/vue-design-patterns/": [
-    {
-      text: "一、前言",
-      link: "preface.md",
-    },
-    {
-      text: "二、java基础",
-      collapsible: true,
-      // 移除link属性，使其成为纯分组标题
-      children: [
-        // jvm应该指向一个具体的路径，而不是独立的侧边栏
-        {
-          text: "jvm",
-          collapsible: true,
-          // 如果jvm也是分组标题，就不要link属性；如果是页面，则添加link
-          children: [
-            {
-              text: "类的生命周期",
-              link: "basics/jvm/class-lifecycle.md",
-
-            },
-            // 可以根据需要添加更多jvm相关子菜单
-          ]
-        },
-      ],
-    },
-  ],
-
+  "/藏经阁/": "structure",
+  "/悟道室/": "structure",
   "/column/": [
     {
-      text: "技术博文专栏",
+      text: "功法阁宗旨碑",
       link: "/column/README.md",
     },
     {

@@ -2,8 +2,10 @@ import { navbar } from "vuepress-theme-hope";
 
 export default navbar([
   "/",
+  "/藏经阁/",
+  "/悟道室/",
   {
-    text: "博文",
+    text: "功法阁",
     icon: "pen-to-square",
     prefix: "/column/",
     children: [

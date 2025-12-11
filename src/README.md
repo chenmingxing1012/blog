@@ -1,7 +1,7 @@
 ---
 home: true
 icon: home
-title: 首页
+title: 洞府前厅
 heroImage: /assets/images/韩立主页.jpg
 bgImage: https://theme-hope-assets.vuejs.press/bg/6-light.svg
 bgImageDark: https://theme-hope-assets.vuejs.press/bg/6-dark.svg
