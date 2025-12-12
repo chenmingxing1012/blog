@@ -27,6 +27,12 @@ export default navbar([
         icon: "pen-to-square",
         activeMatch: "^/column/12步通关求职面试-杨宇堃/$",
       },
+      {
+        text: "Java并发编程78讲-徐隆曦",
+        link: "Java并发编程78讲-徐隆曦",
+        icon: "pen-to-square",
+        activeMatch: "^/column/Java并发编程78讲-徐隆曦/$",
+      },
 
     ],
   },
