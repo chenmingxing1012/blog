@@ -29,7 +29,7 @@ export default navbar([
       },
       {
         text: "Java并发编程78讲-徐隆曦",
-        link: "Java并发编程78讲-徐隆曦",
+        link: "Java并发编程78讲-徐隆曦/",
         icon: "pen-to-square",
         activeMatch: "^/column/Java并发编程78讲-徐隆曦/$",
       },
