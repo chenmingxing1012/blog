@@ -15,6 +15,10 @@ breadcrumb: false
 
 而随着互联网进入下半场，好公司对程序员的要求也水涨船高，各大互联网公司的岗位描述中，JVM 几乎是逃不掉的关键词，我们举几个来自拉勾网的 JD 实例。
 
+![](assets/Cgq2xl4UHbaAbQpRAAFwYhjKGfI605.png)
+
+![](assets/CgpOIF4UHbaAY95gAANKbhNC55A721.png)
+
 你会发现，在 Java 高级工程师岗位要求中，JVM 几乎成了必须掌握的技能点，而在面经里涉及 JVM 的知识也数不胜数，本专栏各课时涉及的知识点，也正是各大厂 Java 高级工程师面试的高频考题。
 
 只要你是在做 Java 方面的工作，JVM 便是必备的知识。

@@ -21,6 +21,8 @@ JVM 的 GC 动作，是不受程序控制的，它会在满足条件的时候，
 
 如图所示，Obj5、Obj6、Obj7，由于不能和 GC Root 产生关联，发生 GC 时，就会被摧毁。
 
+![](assets/CgpOIF4heVuAPrWVAACK3qrA9-0011.png)
+
 垃圾回收就是围绕着 GC Roots 去做的。同时，它也是很多内存泄露的根源，因为其他引用根本没有这样的权利。
 
 那么，什么样的对象，才会是 GC Root 呢？这不在于它是什么样的对象，而在于它所处的位置。
@@ -45,6 +47,8 @@ GC Roots 包括：
 - 类的静态变量的引用。
 - JNI 引用。
 
+![](assets/Cgq2xl4hefWAWKFZAAMwndGjScg437.png)
+
 有两个注意点：
 
 - 我们这里说的是活跃的引用，而不是对象，对象是不能作为 GC Roots 的。
@@ -57,6 +61,8 @@ GC Roots 包括：
 我在面试的时候，经常会问这些问题，比如“弱引用有什么用处”？令我感到奇怪的是，即使是一些工作多年的 Java 工程师，对待这个问题也是一知半解，错失了很多机会。
 
 对象对于另外一个对象的引用，要看关系牢靠不牢靠，可能在链条的其中一环，就断掉了。
+
+![](assets/Cgq2xl4hehyAEx1JAABb83OQ5S0469.png)
 
 根据发生 GC 时，这条链条的表现，可以对这个引用关系进行更加细致的划分。
 
@@ -174,9 +180,9 @@ private static void startMonitoring(ReferenceQueue<MyObject> referenceQueue, Ref
 
 ### 典型 OOM 场景
 
-OOM 的全称是 Out Of Memory，那我们的内存区域有哪些会发生 OOM 呢？我们可以从内存区域划分图上，看一下彩色部分。
+OOM 的全称是 Out Of Memory，那我们的内存区域有哪些会发生 OOM 呢？我们可以从内存区域划分图上，看一下彩色部分。![](assets/Cgq2xl4hepeAAwhWAAJfLYUzaPI499.png)
 
-可以看到除了程序计数器，其他区域都有OOM溢出的可能。但是最常见的还是发生在堆上。
+可以看到除了程序计数器，其他区域都有OOM溢出的可能。但是最常见的还是发生在堆上。![](assets/Cgq2xl4heqWAZMlOAAA-Cqk2QcM143.png)
 
 所以 OOM 到底是什么引起的呢？有几个原因：
 
@@ -186,6 +192,8 @@ OOM 的全称是 Out Of Memory，那我们的内存区域有哪些会发生 OOM 
 - 对堆外内存无限制的使用。这种情况一旦发生更加严重，会造成操作系统内存耗尽。
 
 典型的内存泄漏场景，原因在于对象没有及时的释放自己的引用。比如一个局部变量，被外部的静态集合引用。
+
+![](assets/Cgq2xl4hesWATlosAAJxxYIdMjs057.png)
 
 你在平常写代码时，一定要注意这种情况，千万不要为了方便把对象到处引用。即使引用了，也要在合适时机进行手动清理。关于这部分的问题根源排查，我们将在实践课程中详细介绍。
 
