@@ -39,6 +39,12 @@ export default navbar([
         icon: "pen-to-square",
         activeMatch: "^/column/Java 性能优化实战/$",
       },
+      {
+        text: "白话设计模式28讲",
+        link: "白话设计模式28讲/",
+        icon: "pen-to-square",
+        activeMatch: "^/column/白话设计模式28讲/$",
+      },
 
     ],
   },
