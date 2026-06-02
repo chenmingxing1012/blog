@@ -90,7 +90,7 @@ void add();
 
 着重看一下add方法，可以看到一个简单的i++操作，竟然有这么多的字节码，而它们都是傻乎乎按照“顺序执行”的。当它自己执行的时候不会有什么问题，但是如果放在多线程环境中，执行顺序就变得不可预料了。
 
-![]\(assets/CgpOIF5onG-ASh8rAABuZux4V8o900.jpg)
+![](assets/CgpOIF5onG-ASh8rAABuZux4V8o900.jpg)
 
 上图展示了这个乱序的过程。线程 A 和线程 B“并发”执行相同的代码块 add，执行的顺序如图中的标号，它们在线程中是有序的（1、2、5 或者 3、4、6），但整体顺序是不可预测的。
 
@@ -102,7 +102,7 @@ void add();
 
 另外，在执行过程中，CPU 可能也会对输入的代码进行乱序执行优化，Java 虚拟机的即时编译器也有类似的指令重排序优化。整个函数的执行步骤就分的更加细致，看起来非常的碎片化（比字节码指令要细很多）。
 
-![]\(assets/CgpOIF5on1aAHrXyAAErA3GeoZc492.png)
+![](assets/CgpOIF5on1aAHrXyAAErA3GeoZc492.png)
 
 不管是字节码的原因，还是硬件的原因，在粗粒度上简化来看，比较浅显且明显的因素，那就是线程 add 方法的操作并不是原子性的。
 
@@ -117,7 +117,7 @@ synchronized void add() {
 
 ```
 
-![]\(assets/CgpOIF5onHCAZexGAAB54PXjqm0171.jpg)
+![](assets/CgpOIF5onHCAZexGAAB54PXjqm0171.jpg)
 
 讲到这里，Java 的内存模型就呼之欲出了。JMM 是一个抽象的概念，它描述了一系列的规则或者规范，用来解决多线程的共享变量问题，比如 volatile、synchronized 等关键字就是围绕 JMM 的语法。这里所说的变量，包括实例字段、静态字段，但不包括局部变量和方法参数，因为后者是线程私有的，不存在竞争问题。
 
@@ -132,7 +132,7 @@ JMM 分为主存储器（Main Memory）和工作存储器（Working Memory）两
 
 在这个模型中，线程无法对主存储器直接进行操作。如下图，线程 A 想要和线程 B 通信，只能通过主存进行交换。
 
-![]\(assets/Cgq2xl5onHCAAcYVAACpkPY4wyE593.png)
+![](assets/Cgq2xl5onHCAAcYVAACpkPY4wyE593.png)
 
 那这些内存区域都是在哪存储的呢？如果非要有个对应的话，你可以认为主存中的内容是 Java 堆中的对象，而工作内存对应的是虚拟机栈中的内容。但实际上，主内存也可能存在于高速缓存，或者 CPU 的寄存器上；工作内存也可能存在于硬件内存中，我们不用太纠结具体的存储位置。
 
@@ -158,7 +158,7 @@ JMM 分为主存储器（Main Memory）和工作存储器（Working Memory）两
 
 （8）unlock（解锁）作用于主内存，它将释放独占状态。
 
-![]\(assets/CgpOIF5onHCAXFzbAADGGN8aPCY990.png)
+![](assets/CgpOIF5onHCAXFzbAADGGN8aPCY990.png)
 
 如上图所示，把一个变量从主内存复制到工作内存，就要顺序执行 read 和 load；而把变量从工作内存同步回主内存，就要顺序执行 store 和 write 操作。
 

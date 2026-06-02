@@ -75,7 +75,7 @@ String s2 = "lagou";
 
 其实 s1 和 s2 背后指向的都是常量池中的同一个“lagou”，如下图所示：
 
-![]\(assets/Ciqah16inuiAShobAAEQTGOzcvs087.png)
+![](assets/Ciqah16inuiAShobAAEQTGOzcvs087.png)
 
 在图中可以看到，左边这两个引用都指向常量池中的同一个“lagou”，正是因为这样的机制，再加上 String 在程序中的应用是如此广泛，我们就可以**节省大量的内存空间**。
 
