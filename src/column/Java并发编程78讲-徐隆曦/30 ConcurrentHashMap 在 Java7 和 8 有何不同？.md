@@ -11,7 +11,7 @@ breadcrumb: false
 
 我们首先来看一下 Java 7 版本中的 ConcurrentHashMap 的结构示意图：
 
-![img](assets/CgpOIF4b3hKAfFsTAAG5MQvpc-w836.png)
+![]\(assets/CgpOIF4b3hKAfFsTAAG5MQvpc-w836.png)
 
 从图中我们可以看出，在 ConcurrentHashMap 内部进行了 Segment 分段，Segment 继承了 ReentrantLock，可以理解为一把锁，各个 Segment 之间都是相互独立上锁的，互不影响。相比于之前的 Hashtable 每次操作都需要把整个对象锁住而言，大大提高了并发效率。因为它的锁与锁之间是独立的，而不是整个对象只有一把锁。
 
@@ -21,7 +21,7 @@ breadcrumb: false
 
 在 Java 8 中，几乎完全重写了 ConcurrentHashMap，代码量从原来 Java 7 中的 1000 多行，变成了现在的 6000 多行，所以也大大提高了源码的阅读难度。而为了方便我们理解，我们还是先从整体的结构示意图出发，看一看总体的设计思路，然后再去深入细节。
 
-![img](assets/Cgq2xl4b3oCAAFxPAAGZw5NzqtE099.png)
+![]\(assets/Cgq2xl4b3oCAAFxPAAGZw5NzqtE099.png)
 
 图中的节点有三种类型。
 
@@ -334,9 +334,9 @@ return null;
 
 正如本课时最开始的两个结构示意图所示，Java 7 采用 Segment 分段锁来实现，而 Java 8 中的 ConcurrentHashMap 使用数组 + 链表 + 红黑树，在这一点上它们的差别非常大。
 
-![img](assets/Cgq2xl4b3kGAVZgMAAG5MQvpc-w153.png)
+![]\(assets/Cgq2xl4b3kGAVZgMAAG5MQvpc-w153.png)
 
-![img](assets/Cgq2xl4b3l6Ae_CiAAGZw5NzqtE956.png)
+![]\(assets/Cgq2xl4b3l6Ae_CiAAGZw5NzqtE956.png)
 
 #### 并发度
 

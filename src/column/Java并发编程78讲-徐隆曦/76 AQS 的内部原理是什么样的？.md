@@ -95,7 +95,7 @@ private volatile int state;
 
 这个队列内部是双向链表的形式，其数据结构看似简单，但是要想维护成一个线程安全的双向队列却非常复杂，因为要考虑很多的多线程并发问题。我们来看一下 AQS 作者 Doug Lea 给出的关于这个队列的一个图示：
 
-![插图1.png](assets/Ciqc1F6pW3CAHYjKAACSEPDrUoc078.png)
+![]\(assets/Ciqc1F6pW3CAHYjKAACSEPDrUoc078.png)
 
 （此图引用自英文文档中的图）
 
