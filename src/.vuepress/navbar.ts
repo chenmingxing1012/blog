@@ -51,6 +51,12 @@ export default navbar([
         icon: "pen-to-square",
         activeMatch: "^/column/深入浅出Java虚拟机/$",
       },
+      {
+        text: "JVM核心技术32讲",
+        link: "JVM核心技术32讲/",
+        icon: "pen-to-square",
+        activeMatch: "^/column/JVM核心技术32讲/$",
+      },
 
     ],
   },
