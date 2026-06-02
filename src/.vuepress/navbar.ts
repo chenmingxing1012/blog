@@ -45,6 +45,12 @@ export default navbar([
         icon: "pen-to-square",
         activeMatch: "^/column/白话设计模式28讲/$",
       },
+      {
+        text: "深入浅出Java虚拟机",
+        link: "深入浅出Java虚拟机/",
+        icon: "pen-to-square",
+        activeMatch: "^/column/深入浅出Java虚拟机/$",
+      },
 
     ],
   },
