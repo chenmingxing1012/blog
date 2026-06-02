@@ -105,7 +105,7 @@ Java 字节码一般都比较容易读懂，这从侧面上证明 Java 语言的
 
 这里的 Java 程序是文本格式的。比如下面这段 HelloWorld.java，它遵循的就是 Java 语言规范。其中，我们调用了 System.out 等模块，也就是 JRE 里提供的类库。
 
-```java
+``` java
 public class HelloWorld {
     public static void main(String[] args) {
         System.out.println("Hello World");
@@ -118,7 +118,7 @@ public class HelloWorld {
 
 我们一直在说 Java 字节码是沟通 JVM 与 Java 程序的桥梁，下面使用 javap 来稍微看一下字节码到底长什么样子。
 
-```html
+``` html
 0 getstatic #2 <java/lang/System.out>
 3 ldc #3 <Hello World>
 5 invokevirtual #4 <java/io/PrintStream.println>
@@ -130,14 +130,14 @@ Java 虚拟机采用基于栈的架构，其指令由操作码和操作数组成
 
 我们继续使用 hexdump 看一下字节码的二进制内容。与以上字节码对应的二进制，就是下面这几个数字（可以搜索一下）。
 
-```java
+``` java
 b2 00 02 12 03 b6 00 04 b1
 
 ```
 
 我们可以看一下它们的对应关系。
 
-```java
+``` java
 0xb2   getstatic       获取静态字段的值
 0x12   ldc             常量池中的常量值入栈
 0xb6   invokevirtual   运行时方法绑定调用方法
