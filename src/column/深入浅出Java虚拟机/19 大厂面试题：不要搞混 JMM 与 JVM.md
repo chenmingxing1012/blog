@@ -17,7 +17,7 @@ breadcrumb: false
 
 我们在 Java 的内存布局课时（第02课时）中，还了解了 Java 的虚拟机栈，它和线程相关，也就是我们的字节码指令其实是靠操作栈来完成的。现在，用一小段代码，来看一下这个执行引擎的一些特点。
 
-```
+``` 
 import java.util.stream.IntStream;
 public class JMMDemo {
 
@@ -49,7 +49,7 @@ public class JMMDemo {
 
 上面的代码没有任何同步块，每个线程单独运行后，都会对 value 加 10 万，但执行之后，大概率不会输出 20 万。深层次的原因，我们将使用 javap 命令从字节码层面找一下。
 
-```
+``` 
 void add();
 
     descriptor: ()V
@@ -108,7 +108,7 @@ void add();
 
 为了解决这个问题，我们可以在 add 方法上添加 synchronized 关键字，它不仅保证了内存上的同步，而且还保证了 CPU 的同步。这个时候，各个线程只能排队进入 add 方法，我们也能够得到期望的结果 102。
 
-```
+``` 
 synchronized void add() {
 
     value++;
@@ -217,7 +217,7 @@ Load-Load Barriers
 
 保证 load1 数据的装载优先于 load2 以及所有后续装载指令的装载。对于 Load Barrier 来说，在指令前插入 Load Barrier，可以让高速缓存中的数据失效，强制重新从主内存加载数据。
 
-```
+``` 
 load1
 
 LoadLoad
@@ -230,7 +230,7 @@ Load-Store Barriers
 
 保证 load1 数据装载优先于 store2 以及后续的存储指令刷新到内存。
 
-```
+``` 
 load1
 
 LoadStore
@@ -243,7 +243,7 @@ Store-Store Barriers
 
 保证 store1 数据对其他处理器可见，优先于 store2 以及所有后续存储指令的存储。对于 Store Barrier 来说，在指令后插入 Store Barrier，能让写入缓存中的最新数据更新写入主内存，让其他线程可见。
 
-```
+``` 
 store1
 
 StoreStore
@@ -256,7 +256,7 @@ Store-Load Barriers
 
 在 Load2 及后续所有读取操作执行前，保证 Store1 的写入对所有处理器可见。这条内存屏障指令是一个全能型的屏障，它同时具有其他 3 条屏障的效果，而且它的开销也是四种屏障中最大的一个。
 
-```
+``` 
 store1
 
 StoreLoad

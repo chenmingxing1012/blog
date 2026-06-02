@@ -15,7 +15,7 @@ breadcrumb: false
 
 jmap 命令在 Java 9 之后，使用 jhsdb 命令替代，它们在用法上，区别不大。注意，这些命令本身会占用操作系统的资源，在某些情况下会造成服务响应缓慢，所以不要频繁执行。
 
-```
+``` 
 jmap -dump:format=b,file=heap.bin 37340
 
 jhsdb jmap  --binaryheap --pid  37340
@@ -59,7 +59,7 @@ A 对象大小（1 KB + 2 KB + 100 KB）> A 对象深堆 > A 对象浅堆。
 
 ## 2. 代码示例
 
-```
+``` 
 import java.util.ArrayList;
 
 import java.util.HashMap;
@@ -236,7 +236,7 @@ public class Objects4MAT {
 
 编译下面这段代码，可以展开视图，实际观测一下支配树，这和我们上面介绍的是一致的。
 
-```
+``` 
 public class DorminatorTreeDemo {
 
     static class A {
@@ -388,21 +388,21 @@ MAT 支持一种类似于 SQL  的查询语言 OQL（Object Query Language），
 
 查询 A4MAT 对象：
 
-```
+``` 
 SELECT * FROM  Objects4MAT$A4MAT
 
 ```
 
 正则查询 MAT 结尾的对象：
 
-```
+``` 
 SELECT * FROM ".*MAT"
 
 ```
 
 查询 String 类的 char 数组：
 
-```
+``` 
 SELECT OBJECTS s.value FROM java.lang.String s 
 
 SELECT OBJECTS mat.b4MAT FROM  Objects4MAT$A4MAT mat
@@ -411,35 +411,35 @@ SELECT OBJECTS mat.b4MAT FROM  Objects4MAT$A4MAT mat
 
 根据内存地址查找对象：
 
-```
+``` 
 select * from 0x55a034c8
 
 ```
 
 使用 INSTANCEOF 关键字，查找所有子类：
 
-```
+``` 
 SELECT * FROM INSTANCEOF java.util.AbstractCollection
 
 ```
 
 查询长度大于 1000 的 byte 数组：
 
-```
+``` 
 SELECT * FROM byte[] s WHERE [email protected]>1000
 
 ```
 
 查询包含 java 字样的所有字符串：
 
-```
+``` 
 SELECT * FROM java.lang.String s WHERE toString(s) LIKE ".*java.*"
 
 ```
 
 查找所有深堆大小大于 1 万的对象：
 
-```
+``` 
 SELECT * FROM INSTANCEOF java.lang.Object o WHERE [email protected]>10000
 
 ```
