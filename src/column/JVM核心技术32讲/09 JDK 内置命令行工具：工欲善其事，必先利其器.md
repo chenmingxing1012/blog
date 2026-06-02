@@ -79,8 +79,8 @@ Definitions:
 - -m：显示传给 main 方法的参数信息
 - -l：显示启动 class 的完整类名，或者启动 jar 的完整路径
 - -V：大写的 V，这个参数有问题，相当于没传一样。官方说的跟-q差不多。
-- <hostid>：部分是远程主机的标识符，需要远程主机启动jstatd服务器支持。
-可以看到，格式为<hostname>[:<port>]，不能用 IP，示例：jps -v sample.com:1099。
+- `<hostid>`：部分是远程主机的标识符，需要远程主机启动jstatd服务器支持。
+可以看到，格式为`<hostname>`[:`<port>`]，不能用 IP，示例：jps -v sample.com:1099。
 知道 JVM 进程的 PID 之后，就可以使用其他工具来进行诊断了。
 ### jstat 工具简介
 jstat 用来监控 JVM 内置的各种统计信息，主要是内存和 GC 相关的信息。
@@ -107,7 +107,7 @@ Definitions:
 
   -J<flag>      传给jstat底层JVM的 <flag> 参数
 ```
-再来看看<option>部分支持哪些选项：
+再来看看`<option>`部分支持哪些选项：
 > $jstat -options
 ```
 -class
@@ -199,9 +199,9 @@ jstat -gc -t 864 1s 3
 
 jstat -gc -t -h 10 864 1s 15
 ```
-其中的1s占了<interval>这个槽位，表示每 1 秒输出一次信息。
+其中的1s占了`<interval>`这个槽位，表示每 1 秒输出一次信息。
 1s 3的意思是每秒输出 1 次，最多 3 次。
-如果只指定刷新周期，不指定<count>部分，则会一直持续输出。 退出输出按CTRL+C即可。
+如果只指定刷新周期，不指定`<count>`部分，则会一直持续输出。 退出输出按CTRL+C即可。
 -h 10的意思是每 10 行输出一次表头。
 结果大致如下：
 Timestamp

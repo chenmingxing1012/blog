@@ -145,7 +145,7 @@ Object b = obj.x;
 - -XX:UseNUMA：启用 NUMA 支持（挂载很多 CPU，每个 CPU 指定一部分内存条的系统）。ZGC 默认开启 NUMA 支持，意味着在分配堆内存时，会尽量使用 NUMA-local 的内存。开启和关闭可以使用-XX:+UseNUMA或者-XX:-UseNUMA。
 - -XX:ZFragmentationLimit：根据当前 region 已大于 ZFragmentationLimit，超过则回收，默认为 25。
 - -XX:ZStatisticsInterval：设置打印 ZStat 统计数据（CPU、内存等 log）的间隔。
-此外还有前面提过的并发线程数参数-XX:ConcGCThreads=<number>，这个参数对于并发执行的 GC 策略都很重要，需要根据 CPU 核心数考虑，配置太多导致线程切换消耗太大，配置太少导致回收垃圾速度跟不上系统使用的速度。
+此外还有前面提过的并发线程数参数-XX:ConcGCThreads=`<number>`，这个参数对于并发执行的 GC 策略都很重要，需要根据 CPU 核心数考虑，配置太多导致线程切换消耗太大，配置太少导致回收垃圾速度跟不上系统使用的速度。
 #### Java 13 对 ZGC 的改进
 Java 11 中的 ZGC，并没有像这个版本中的 G1 一样，主动将未使用的内存释放给操作系统。
 也就是说内存回收以后，没有还给操作系统，依然是自己在管理。
@@ -159,7 +159,7 @@ Java 13 中对 ZGC 的改进，主要体现在下面几点：
 - 当希望在一般情况下降低堆内存占用，同时保持应对堆空间临时增加的能力，
 - 亦或想保留充足内存空间，以能够应对内存分配，而不会因为内存分配意外增加而陷入分配停滞状态。
 注意，不要将 SoftMaxHeapSize 设置为大于 Xmx 的值，因为如果设置了 Xmx，会以 Xmx 为最大值，即永远不会到达SoftMaxHeapSize。
-在 Java 13 中，ZGC 内存释放给操作系统特性是默认开启的，可以使用参数-XX:-ZUncommit来关闭。也可以使用参数-XX:ZUncommitDelay=<seconds>来配置延迟一定时间后再释放内存，默认为 300 秒。
+在 Java 13 中，ZGC 内存释放给操作系统特性是默认开启的，可以使用参数-XX:-ZUncommit来关闭。也可以使用参数-XX:ZUncommitDelay=`<seconds>`来配置延迟一定时间后再释放内存，默认为 300 秒。
 ### Shenandoah GC 简介
 Java 12 正式发布于 2019 年 3 月 19 日，这个版本引入了一款新的垃圾收集器：Shenandoah（读作“谢南多厄”，美国地名），WIKI 请参考：
 > https://wiki.openjdk.java.net/display/shenandoah/Main
@@ -212,7 +212,7 @@ GC(3) Concurrent cleanup 76244M->56620M(102400M) 12.242ms
 - 让-Xmx等于-Xms：设置初始堆大小与最大值一致，可以减轻堆内存扩容带来的压力，与 AlwaysPreTouch 参数配合使用，在启动时申请所有内存，避免在使用中出现系统停顿。
 - -XX:+UseTransparentHugePages：能够大大提高大堆的性能。
 #### 启发式参数
-启发式参数告知 Shenandoah GC何时开始GC处理，以及确定要归集的堆块。可以使用-XX:ShenandoahGCHeuristics=<name>来选择不同的启发模式，有些启发模式可以配置一些参数，帮助我们更好地使用 GC。可用的启发模式如下。
+启发式参数告知 Shenandoah GC何时开始GC处理，以及确定要归集的堆块。可以使用-XX:ShenandoahGCHeuristics=`<name>`来选择不同的启发模式，有些启发模式可以配置一些参数，帮助我们更好地使用 GC。可用的启发模式如下。
 1. 自适应模式（adaptive）
 此为默认参数，通过观察之前的一些 GC 周期，以便在堆耗尽之前尝试启动下一个 GC 周期。
 - -XX:ShenandoahInitFreeThreshold=#：触发“学习”集合的初始阈值
