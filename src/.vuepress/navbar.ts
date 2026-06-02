@@ -33,6 +33,12 @@ export default navbar([
         icon: "pen-to-square",
         activeMatch: "^/column/Java并发编程78讲-徐隆曦/$",
       },
+      {
+        text: "Java 性能优化实战",
+        link: "Java 性能优化实战/",
+        icon: "pen-to-square",
+        activeMatch: "^/column/Java 性能优化实战/$",
+      },
 
     ],
   },
