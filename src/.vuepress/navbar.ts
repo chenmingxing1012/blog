@@ -69,6 +69,12 @@ export default navbar([
         icon: "pen-to-square",
         activeMatch: "^/column/MySQL实战45讲/$",
       },
+      {
+        text: "MySQL实战宝典",
+        link: "MySQL实战宝典/",
+        icon: "pen-to-square",
+        activeMatch: "^/column/MySQL实战宝典/$",
+      },
 
     ],
   },
