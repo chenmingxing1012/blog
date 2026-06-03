@@ -75,6 +75,12 @@ export default navbar([
         icon: "pen-to-square",
         activeMatch: "^/column/MySQL实战宝典/$",
       },
+      {
+        text: "Spring Security 详解与实操",
+        link: "Spring Security 详解与实操/",
+        icon: "pen-to-square",
+        activeMatch: "^/column/Spring Security 详解与实操/$",
+      },
 
     ],
   },
