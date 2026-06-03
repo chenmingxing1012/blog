@@ -63,6 +63,12 @@ export default navbar([
         icon: "pen-to-square",
         activeMatch: "^/column/Kafka核心技术与实战/$",
       },
+      {
+        text: "MySQL实战45讲",
+        link: "MySQL实战45讲/",
+        icon: "pen-to-square",
+        activeMatch: "^/column/MySQL实战45讲/$",
+      },
 
     ],
   },

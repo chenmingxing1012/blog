@@ -1,0 +1,7 @@
+---
+title: 24  MySQL是怎么保证主备一致的？
+breadcrumb: false
+---
+
+# 24  MySQL是怎么保证主备一致的？
+
