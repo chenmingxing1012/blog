@@ -81,6 +81,12 @@ export default navbar([
         icon: "pen-to-square",
         activeMatch: "^/column/Spring Security 详解与实操/$",
       },
+      {
+        text: "消息队列高手课",
+        link: "消息队列高手课/",
+        icon: "pen-to-square",
+        activeMatch: "^/column/消息队列高手课/$",
+      },
 
     ],
   },
