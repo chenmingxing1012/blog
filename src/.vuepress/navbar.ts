@@ -99,6 +99,12 @@ export default navbar([
         icon: "pen-to-square",
         activeMatch: "^/column/DDD实战课/$",
       },
+      {
+        text: "Dubbo源码解读与实战-完",
+        link: "Dubbo源码解读与实战-完/",
+        icon: "pen-to-square",
+        activeMatch: "^/column/Dubbo源码解读与实战-完/$",
+      },
 
     ],
   },
