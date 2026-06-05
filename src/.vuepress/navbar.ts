@@ -87,6 +87,12 @@ export default navbar([
         icon: "pen-to-square",
         activeMatch: "^/column/消息队列高手课/$",
       },
+      {
+        text: "DDD 微服务落地实战",
+        link: "DDD 微服务落地实战/",
+        icon: "pen-to-square",
+        activeMatch: "^/column/DDD 微服务落地实战/$",
+      },
 
     ],
   },
