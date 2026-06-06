@@ -93,7 +93,7 @@ public void userEventTriggered(ChannelHandlerContext ctx, Object evt) throws Exc
 这里我们依然以基于 Netty 4 的实现—— NettyChannel 为例，分析它对 AbstractChannel 的实现。NettyChannel 中的核心字段有如下几个。
 
 - channel（Channel类型）：Netty 框架中的 Channel，与当前的 Dubbo Channel 对象一一对应。
-- attributes（Map<String, Object>类型）：当前 Channel 中附加属性，都会记录到该 Map 中。NettyChannel 中提供的 getAttribute()、hasAttribute()、setAttribute() 等方法，都是操作该集合。
+- attributes（`Map<String, Object>`类型）：当前 Channel 中附加属性，都会记录到该 Map 中。NettyChannel 中提供的 getAttribute()、hasAttribute()、setAttribute() 等方法，都是操作该集合。
 - active（AtomicBoolean）：用于标识当前 Channel 是否可用。
 
 另外，在 NettyChannel 中还有一个静态的 Map 集合（CHANNEL_MAP 字段），用来缓存当前 JVM 中 Netty 框架 Channel 与 Dubbo Channel 之间的映射关系。从下图的调用关系中可以看到，NettyChannel 提供了读写 CHANNEL_MAP 集合的方法：

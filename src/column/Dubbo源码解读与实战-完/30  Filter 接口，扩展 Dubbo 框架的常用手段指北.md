@@ -92,8 +92,8 @@ public Result invoke(Invoker<?> invoker, Invocation invocation) throws RpcExcept
 
 从 ActiveLimitFilter.invoke() 方法的代码中可以看到，其核心实现与 RpcStatus 对象密切相关。RpcStatus 中维护了两个集合，分别是：
 
-- SERVICE_STATISTICS 集合（ConcurrentMap<String, RpcStatus> 类型），这个集合记录了当前 Consumer 调用每个服务的状态信息，其中 Key 是 URL，Value 是对应的 RpcStatus 对象；
-- METHOD_STATISTICS 集合（ConcurrentMap<String, ConcurrentMap<String, RpcStatus>> 类型），这个集合记录了当前 Consumer 调用每个服务方法的状态信息，其中第一层 Key 是 URL ，第二层 Key 是方法名称，第三层是对应的 RpcStatus 对象。
+- SERVICE_STATISTICS 集合（`ConcurrentMap<String, RpcStatus>` 类型），这个集合记录了当前 Consumer 调用每个服务的状态信息，其中 Key 是 URL，Value 是对应的 RpcStatus 对象；
+- METHOD_STATISTICS 集合（`ConcurrentMap<String, ConcurrentMap<String, RpcStatus>>` 类型），这个集合记录了当前 Consumer 调用每个服务方法的状态信息，其中第一层 Key 是 URL ，第二层 Key 是方法名称，第三层是对应的 RpcStatus 对象。
 
 RpcStatus 中统计了很多调用相关的信息，核心字段有如下几个。
 
@@ -360,7 +360,7 @@ private void processWithServiceLogger(Set<AccessLogData> logSet) {
 
 ```
 
-在 LoggerFactory 中维护了一个 LOGGERS 集合（Map<String, FailsafeLogger> 类型），其中维护了当前使用的全部 FailsafeLogger 对象；FailsafeLogger 对象中封装了一个 Logger 对象，这个 Logger 接口是 Dubbo 自己定义的接口，Dubbo 针对每种第三方框架都提供了一个 Logger 接口的实现，如下图所示：
+在 LoggerFactory 中维护了一个 LOGGERS 集合（`Map<String, FailsafeLogger>` 类型），其中维护了当前使用的全部 FailsafeLogger 对象；FailsafeLogger 对象中封装了一个 Logger 对象，这个 Logger 接口是 Dubbo 自己定义的接口，Dubbo 针对每种第三方框架都提供了一个 Logger 接口的实现，如下图所示：
 
 ![](assets/Ciqc1F-lL4eAGvorAAEnucS-mWg399.png)
 

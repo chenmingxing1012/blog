@@ -114,7 +114,7 @@ RegistryDirectory 是一个动态的 Directory 实现，**实现了 NotifyListen
 - routerFactory（RouterFactory 类型）：路由工厂适配器，也是通过 Dubbo SPI 动态创建的适配器实例。routerFactory 字段和 cluster 字段都是静态字段，多个 RegistryDirectory 对象通用。
 - serviceKey（String 类型）：服务对应的 ServiceKey，默认是 {interface}:[group]:[version] 三部分构成。
 - serviceType（Class 类型）：服务接口类型，例如，org.apache.dubbo.demo.DemoService。
-- queryMap（Map<String, String> 类型）：Consumer URL 中 refer 参数解析后得到的全部 KV。
+- queryMap（`Map<String, String>` 类型）：Consumer URL 中 refer 参数解析后得到的全部 KV。
 - directoryUrl（URL 类型）：只保留 Consumer 属性的 URL，也就是由 queryMap 集合重新生成的 URL。
 - multiGroup（boolean类型）：是否引用多个服务组。
 - protocol（Protocol 类型）：使用的 Protocol 实现。

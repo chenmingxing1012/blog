@@ -404,7 +404,7 @@ DynamicConfigurationFactory 继承关系图
 
 DynamicConfiguration 继承关系图
 
-我们先来看 AbstractDynamicConfigurationFactory 的实现，其中会维护一个 dynamicConfigurations 集合（Map<String, DynamicConfiguration> 类型），在 getDynamicConfiguration() 方法中会填充该集合，实现**缓存**DynamicConfiguration 对象的效果。同时，AbstractDynamicConfigurationFactory 提供了一个 createDynamicConfiguration() 方法给子类实现，来**创建**DynamicConfiguration 对象。
+我们先来看 AbstractDynamicConfigurationFactory 的实现，其中会维护一个 dynamicConfigurations 集合（`Map<String, DynamicConfiguration>` 类型），在 getDynamicConfiguration() 方法中会填充该集合，实现**缓存**DynamicConfiguration 对象的效果。同时，AbstractDynamicConfigurationFactory 提供了一个 createDynamicConfiguration() 方法给子类实现，来**创建**DynamicConfiguration 对象。
 
 以 ZookeeperDynamicConfigurationFactory 实现为例，其 createDynamicConfiguration() 方法创建的就是 ZookeeperDynamicConfiguration 对象：
 

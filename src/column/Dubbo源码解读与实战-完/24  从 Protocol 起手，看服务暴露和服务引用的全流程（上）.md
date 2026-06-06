@@ -8,14 +8,14 @@ Protocol 接口继承关系图
 
 其中，**AbstractProtocol**提供了一些 Protocol 实现需要的公共能力以及公共字段，它的核心字段有如下三个。
 
-- exporterMap（Map<String, Exporter<?>>类型）：用于存储出去的服务集合，其中的 Key 通过 ProtocolUtils.serviceKey() 方法创建的服务标识，在 ProtocolUtils 中维护了多层的 Map 结构（如下图所示）。首先按照 group 分组，在实践中我们可以根据需求设置 group，例如，按照机房、地域等进行 group 划分，做到就近调用；在 GroupServiceKeyCache 中，依次按照 serviceName、serviceVersion、port 进行分类，最终缓存的 serviceKey 是前面三者拼接而成的。
+- exporterMap（`Map<String, Exporter<?>>`类型）：用于存储出去的服务集合，其中的 Key 通过 ProtocolUtils.serviceKey() 方法创建的服务标识，在 ProtocolUtils 中维护了多层的 Map 结构（如下图所示）。首先按照 group 分组，在实践中我们可以根据需求设置 group，例如，按照机房、地域等进行 group 划分，做到就近调用；在 GroupServiceKeyCache 中，依次按照 serviceName、serviceVersion、port 进行分类，最终缓存的 serviceKey 是前面三者拼接而成的。
 
 ![](assets/Ciqc1F-JXfmAJK8RAAHUliqXmBc629.png)
 
 groupServiceKeyCacheMap 结构图
 
-- serverMap（Map<String, ProtocolServer>类型）：记录了全部的 ProtocolServer 实例，其中的 Key 是 host 和 port 组成的字符串，Value 是监听该地址的 ProtocolServer。ProtocolServer 就是对 RemotingServer 的一层简单封装，表示一个服务端。
-- invokers（Set<Invoker<?>>类型）：服务引用的集合。
+- serverMap（`Map<String, ProtocolServer>`类型）：记录了全部的 ProtocolServer 实例，其中的 Key 是 host 和 port 组成的字符串，Value 是监听该地址的 ProtocolServer。ProtocolServer 就是对 RemotingServer 的一层简单封装，表示一个服务端。
+- invokers（`Set<Invoker<?>>`类型）：服务引用的集合。
 
 AbstractProtocol 没有对 Protocol 的 export() 方法进行实现，对 refer() 方法的实现也是委托给了 protocolBindingRefer() 这个抽象方法，然后由子类实现。AbstractProtocol 唯一实现的方法就是 destory() 方法，其首先会遍历 Invokers 集合，销毁全部的服务引用，然后遍历全部的 exporterMap 集合，销毁发布出去的服务，具体实现如下：
 
@@ -237,10 +237,10 @@ RpcInvocation 继承关系图
 - parameterTypes（Class<?>[]类型）：记录了目标方法的全部参数类型。
 - parameterTypesDesc（String类型）：参数列表签名。
 - arguments（Object[]类型）：具体参数值。
-- attachments（Map<String, Object>类型）：此次调用的附加信息，可以被序列化到请求中。
-- attributes（Map<Object, Object>类型）：此次调用的属性信息，这些信息不能被发送出去。
-- invoker（Invoker<?>类型）：此次调用关联的 Invoker 对象。
-- returnType（Class<?>类型）：返回值的类型。
+- attachments（`Map<String, Object>`类型）：此次调用的附加信息，可以被序列化到请求中。
+- attributes（`Map<Object, Object>`类型）：此次调用的属性信息，这些信息不能被发送出去。
+- invoker（`Invoker<?>`类型）：此次调用关联的 Invoker 对象。
+- returnType（`Class<?>`类型）：返回值的类型。
 - invokeMode（InvokeMode类型）：此次调用的模式，分为 SYNC、ASYNC 和 FUTURE 三类。
 
 我们在上面的继承图中看到 RpcInvocation 的一个子类—— DecodeableRpcInvocation，它是用来支持解码的，其实现的 decode() 方法正好是 DubboCodec.encodeRequestData() 方法对应的解码操作，在 DubboCodec.decodeBody() 方法中就调用了这个方法，调用关系如下图所示：

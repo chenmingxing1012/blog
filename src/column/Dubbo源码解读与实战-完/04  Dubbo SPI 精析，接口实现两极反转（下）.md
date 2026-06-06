@@ -66,16 +66,16 @@ Protocol protocol = ExtensionLoader
 
 ![](assets/Ciqc1F8s95mANXYKAADUVwBlgxs297.png)
 
-- EXTENSION_LOADERS（ConcurrentMap<Class, ExtensionLoader>类型）：Dubbo 中一个扩展接口对应一个 ExtensionLoader 实例，该集合缓存了全部 ExtensionLoader 实例，其中的 Key 为扩展接口，Value 为加载其扩展实现的 ExtensionLoader 实例。
-- EXTENSION_INSTANCES（ConcurrentMap<Class<?>, Object>类型）：该集合缓存了扩展实现类与其实例对象的映射关系。在前文示例中，Key 为 Class，Value 为 DubboProtocol 对象。
+- EXTENSION_LOADERS（`ConcurrentMap<Class, ExtensionLoader>`类型）：Dubbo 中一个扩展接口对应一个 ExtensionLoader 实例，该集合缓存了全部 ExtensionLoader 实例，其中的 Key 为扩展接口，Value 为加载其扩展实现的 ExtensionLoader 实例。
+- EXTENSION_INSTANCES（`ConcurrentMap<Class<?>, Object>`类型）：该集合缓存了扩展实现类与其实例对象的映射关系。在前文示例中，Key 为 Class，Value 为 DubboProtocol 对象。
 
 下面我们再来关注一下 ExtensionLoader 的实例字段。
 
-- type（Class<?>类型）：当前 ExtensionLoader 实例负责加载扩展接口。
+- type（`Class<?>`类型）：当前 ExtensionLoader 实例负责加载扩展接口。
 - cachedDefaultName（String类型）：记录了 type 这个扩展接口上 @SPI 注解的 value 值，也就是默认扩展名。
-- cachedNames（ConcurrentMap<Class<?>, String>类型）：缓存了该 ExtensionLoader 加载的扩展实现类与扩展名之间的映射关系。
-- cachedClasses（Holder<Map<String, Class<?>>>类型）：缓存了该 ExtensionLoader 加载的扩展名与扩展实现类之间的映射关系。cachedNames 集合的反向关系缓存。
-- cachedInstances（ConcurrentMap<String, Holder>类型）：缓存了该 ExtensionLoader 加载的扩展名与扩展实现对象之间的映射关系。
+- cachedNames（`ConcurrentMap<Class<?>, String>`类型）：缓存了该 ExtensionLoader 加载的扩展实现类与扩展名之间的映射关系。
+- cachedClasses（`Holder<Map<String, Class<?>>>`类型）：缓存了该 ExtensionLoader 加载的扩展名与扩展实现类之间的映射关系。cachedNames 集合的反向关系缓存。
+- cachedInstances（`ConcurrentMap<String, Holder>`类型）：缓存了该 ExtensionLoader 加载的扩展名与扩展实现对象之间的映射关系。
 
 ExtensionLoader.getExtensionLoader() 方法会根据扩展接口从 EXTENSION_LOADERS 缓存中查找相应的 ExtensionLoader 实例，核心实现如下：
 
@@ -254,7 +254,7 @@ private void loadClass(){
 ```
 
 1. 在 isWrapperClass() 方法中，会判断该扩展实现类是否包含拷贝构造函数（即构造函数只有一个参数且为扩展接口类型），如果包含，则为 Wrapper 类，这就是判断 Wrapper 类的标准。
-2. 将 Wrapper 类记录到 cachedWrapperClasses（Set<Class<?>>类型）这个实例字段中进行缓存。
+2. 将 Wrapper 类记录到 cachedWrapperClasses（`Set<Class<?>>`类型）这个实例字段中进行缓存。
 
 前面在介绍 createExtension() 方法时的 4 处，有下面这段代码，其中会遍历全部 Wrapper 类并一层层包装到真正的扩展实例对象外层：
 
