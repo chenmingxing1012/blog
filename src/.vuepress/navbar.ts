@@ -100,10 +100,10 @@ export default navbar([
         activeMatch: "^/column/DDD实战课/$",
       },
       {
-        text: "Dubbo源码解读与实战-完",
-        link: "Dubbo源码解读与实战-完/",
+        text: "Dubbo源码解读与实战",
+        link: "Dubbo源码解读与实战/",
         icon: "pen-to-square",
-        activeMatch: "^/column/Dubbo源码解读与实战-完/$",
+        activeMatch: "^/column/Dubbo源码解读与实战/$",
       },
 
     ],
